@@ -1,0 +1,67 @@
+NAME: Bryan Hooi Yu Ern
+STUDENT ID : 30221005
+DATE CREATED : 10/09/2020
+LAST UPDATED : 11/09/2020
+
+
+PROGRAM NAME : fileutil - multipurpose utility that implements simplified
+                          versions of Linux utilities such as cat, cp and
+                          mv.
+Function(s)  : main()
+
+SYNOPSIS
+    
+    #include <sys/types.h>
+    #include <sys/stat.h>
+    #include <sys/file.h>
+    #include <sys/syscall.h>
+    #include <unistd.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <errno.h>
+    #include <libgen.h>
+    #include "utilityFunctions.h"
+    #include "actions.h"
+    #include "parseArguments.h"
+    
+    int main(int argc, char *argv[]);
+
+
+DESCRIPTION
+    
+    The main() function observes the list of arguments passed in during its
+    invocation on the command line and determines the necessary action to be
+    performed. Any error messages are printed onto the standard error output and
+    success messages are printed onto standard output.
+
+USAGE
+
+    $./fileutil
+    --> displays the contents of the logfile.txt file from the current directory
+    
+    $./fileutil /home/docs/text1.txt
+    --> displays the contents of the text1.txt file
+    
+    $./fileutil /home/docs/text1.txt -d /home/dirX/
+    --> copies text1.txt to dirX
+    
+    $./fileutil /home/docs/text1.txt -d /home/dirX/ -M
+    --> moves text1.txt to dirX
+    
+    $./fileutil /home/docs/text1.txt -d /home/dirX/ -F
+    --> forces the copying of text1.txt to dirX (overwrites any existing text1.txt in dirX if necessary)
+    
+    $./fileutil /home/docs/text1.txt -d /home/dirX/ -M -F
+    --> forces the moving of text1.txt to dirX (overwrites any existing text1.txt in dirX if necessary)
+    
+    $./fileutil /home/docs/text1.txt -M -d /home/dirX/
+    --> moves text1.txt to dirX
+    
+    $./fileutil /home/docs/text1.txt -M -F -d /home/dirX/
+    --> forces the moving of text1.txt to dirX (overwrites any existing text1.txt in dirX if necessary)
+    
+    NOTE
+        1) A destination path must appear after -d in order to be valid.
+        2) The -M option is only valid if -d is also present
+        3) When the -M or -F option is specified, there must be a source file and
+           a destination directory provided as well.
