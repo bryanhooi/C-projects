@@ -1,0 +1,196 @@
+NAME : BRYAN HOOI YU ERN
+STUDENT ID : 30221005
+START DATE : 24/10/2020
+DATE LAST MODIFIED : 25/10/2020
+DESCRIPTION : Text file containing documentation for each of the tasks in Assignment
+              2. Contains several details regarding each task such as steps to
+              compile and run the programs, scheduling algorithm implementation
+              information for each task, and any assumptions made in order to
+              facilitate execution of each program
+
+--------------------------------------------------------------------------------
+TASK 1 DOCUMENTATION (FIRST-COME-FIRST-SERVE PROCESS SCHEDULING)
+
+USAGE
+
+Task 1 is implemented through 2 .c files (asgn2_helper_functions.c and task-1-30221005.c)
+along with a .h header file (asgn2.h). In order to produce the executable that will
+run the First-Come-First-Serve process scheduler that the main() function in
+task-1-30221005.c serves to execute, type the following in the terminal:
+
+	gcc task-1-30221005.c asgn2_helper_functions -o task-1 -lm
+	
+Ensure that you are running the command above from the same directory as the .c and
+.h files themselves. The -lm flag is used to link the compiled object files with the
+math.h header file that is used in the .c files.
+
+Following successful execution of the given command, an executable file named task-1
+should be produced in the current working directory. In order to run task 1, execute
+the program executable through one of the following two types of commands in the terminal:
+
+	1) ./task-1
+	2) ./task-1 /path/to/file
+
+The first command involves no arguments after the call to task-1. For this command,
+the program attempts to read data for processes from a default text file named process-data.txt
+if it is present within the same directory. If the file is not present, then the
+program exits with error code 1.
+
+The second command allows one argument to be provided after the call to task-1. This
+argument should be a legitimate absolute path to any text file that holds data for
+processes anywhere in the system.
+
+Any calls to task-1 with more than 2 arguments provided will not be accepted and
+the program will exit with error code 1.
+
+ASSUMPTIONS FOR TASK 1
+
+1) The maximum processes encoded as textual information in the input text file
+   is limited to 10.
+2) For process information in the text file, they must be in the format 
+   [Process Name] [Arrival Time] [Service Time] [Deadline]. Process Name is limited
+   to 10 characters maximum. It is adviced that the rest of the line do not exceed
+   99999 99999 99999 in order to prevent file reading issues.
+3) The scheduler implementation selects the next process to be placed in the
+   running state based on the arrival times of all the processes currently entered
+   into the system and in the ready state. If two processes have the same arrival
+   time, then the one that was read in first from the text file is selected.
+4) The scheduler utilizes a while loop to simulate the iterative process of cycling
+   through each process and running them. Each passing iteration represents a 1 second
+   time lapse as implemented with the sleep() function at the start of each iteration.
+5) The struct used to represent a Process Control Block for each process read in
+   also contains additional process information that gets updated as the scheduler
+   runs which will be used after the scheduling ends to write onto the output text
+   file.
+6) If a process is in the running state for two seconds, a statement indicating this
+   situation is only printed to the terminal for the first second of it running.
+--------------------------------------------------------------------------------
+TASK 2 DOCUMENTATION (ROUND-ROBIN PROCESS SCHEDULING)
+
+USAGE
+
+Task 2 is implemented through 2 .c files (asgn2_helper_functions.c and task-2-30221005.c)
+along with a .h header file (asgn2.h). In order to produce the executable that will
+run the Round-Robin process scheduler that the main() function in task-2-30221005.c
+serves to execute, type the following in the terminal:
+
+	gcc task-2-30221005.c asgn2_helper_functions -o task-2 -lm
+	
+Ensure that you are running the command above from the same directory as the .c and
+.h files themselves. The -lm flag is used to link the compiled object files with the
+math.h header file that is used in the .c files.
+
+Following successful execution of the given command, an executable file named task-2
+should be produced in the current working directory. In order to run task 2, execute
+the program executable through one of the following two types of commands in the terminal:
+
+	1) ./task-2
+	2) ./task-2 /path/to/file
+
+The first command involves no arguments after the call to task-2. For this command,
+the program attempts to read data for processes from a default text file named process-data.txt
+if it is present within the same directory. If the file is not present, then the
+program exits with error code 1.
+
+The second command allows one argument to be provided after the call to task-2. This
+argument should be a legitimate absolute path to any text file that holds data for
+processes anywhere in the system.
+
+Any calls to task-2 with more than 2 arguments provided will not be accepted and
+the program will exit with error code 1.
+
+ASSUMPTIONS FOR TASK 2
+
+1) The maximum processes encoded as textual information in the input text file
+   is limited to 10.
+2) For process information in the text file, they must be in the format 
+   [Process Name] [Arrival Time] [Service Time] [Deadline]. Process Name is limited
+   to 10 characters maximum. It is adviced that the rest of the line do not exceed
+   99999 99999 99999 in order to prevent file reading issues.
+3) If a process finishes execution at a time where the determined time quantum
+   used has not been fulfilled for that process as of yet, the next process will
+   be placed in the running state in that same second.
+4) The scheduler utilizes a while loop to simulate the iterative process of cycling
+   through each process and running them. Each passing iteration represents a 1 second
+   time lapse as implemented with the sleep() function at the start of each iteration.
+5) Inputs that force the scheduler to remain idle for certain periods of time are
+   allowed but may disrupt the results calculated after scheduling.
+6) If a process is in the running state for two seconds, a statement indicating this
+   situation is only printed to the terminal for the first second of it running.
+--------------------------------------------------------------------------------
+TASK 3 DOCUMENTATION (PRIORITY BASED SCHEDULING)
+
+USAGE
+
+Task 3 is implemented through 2 .c files (asgn2_helper_functions.c and task-3-30221005.c)
+along with a .h header file (asgn2.h). In order to produce the executable that will
+run the Priority-Based process scheduler that the main() function in task-3-30221005.c
+serves to execute, type the following in the terminal:
+
+	gcc task-3-30221005.c asgn2_helper_functions -o task-3 -lm
+	
+Ensure that you are running the command above from the same directory as the .c and
+.h files themselves. The -lm flag is used to link the compiled object files with the
+math.h header file that is used in the .c files.
+
+Following successful execution of the given command, an executable file named task-3
+should be produced in the current working directory. In order to run task 3, execute
+the program executable through one of the following two types of commands in the terminal:
+
+	1) ./task-3
+	2) ./task-3 /path/to/file
+
+The first command involves no arguments after the call to task-3. For this command,
+the program attempts to read data for processes from a default text file named process-data.txt
+if it is present within the same directory. If the file is not present, then the
+program exits with error code 1.
+
+The second command allows one argument to be provided after the call to task-3. This
+argument should be a legitimate absolute path to any text file that holds data for
+processes anywhere in the system.
+
+Any calls to task-3 with more than 2 arguments provided will not be accepted and
+the program will exit with error code 1.
+
+ASSUMPTIONS FOR TASK 3
+
+1) The maximum processes encoded as textual information in the input text file
+   is limited to 10.
+2) For process information in the text file, they must be in the format 
+   [Process Name] [Arrival Time] [Service Time] [Deadline]. Process Name is limited
+   to 10 characters maximum. It is adviced that the rest of the line do not exceed
+   99999 99999 99999 in order to prevent file reading issues.
+3) The scheduler utilizes a while loop to simulate the iterative process of cycling
+   through each process and running them. Each passing iteration represents a 1 second
+   time lapse as implemented with the sleep() function at the start of each iteration.
+4) If a process is in the running state for two seconds, a statement indicating this
+   situation is only printed to the terminal for the first second of it running.
+5) This algorithm used in this task is non-preemptive and uses the deadline value
+   for each process as its priority value. Processes with lower deadline values
+   will treated as if having a higher priority.
+6) If two processes have the same deadline values, then the process that has been
+   read in first will be treated with higher priority.
+   
+DISCUSSION FOR TASK 3
+
+One important thing to note with regards to the First-Come-First-Serve and Round-
+Robin process schedulers from task 1 and task 2 is that they do not take into account
+the deadline values of each process. For First-Come-First-Serve, the order in which
+the processes receives CPU time depends on their arrival time or entry time into
+the system and Round-Robin scheduling cycles through the processes currently in
+the system accordingly and allocates equal CPU time to each process.
+
+For task 3, the Priority-Based scheduler takes into account the processes deadline
+values when selecting the next process to place in the running state. This gives
+higher emphasis for processes in the system that have lower deadline values whenever
+process switching occurs. One downside to this implementation of the algorithm is
+that it is non-preemptive which may result in certain processes having to wait
+for CPU time upon arrival as there is another process currently being serviced.
+The results should improve upon switching this algorithm to a preemptive one.
+
+The benefit of this algorithm is that processes generally do not have to wait
+very long after arrival into the system as now the order in which they arrive
+no longer plays any part as to when they receive CPU time. This would most likely
+result in systems with a larger amount of processes having more deadlines met as
+turnaround times for processes with lower deadline values generally become reduced.
+--------------------------------------------------------------------------------
